@@ -8,7 +8,7 @@ public class ThreadPoolDemo {
 
     public static void main(String[] args) {
         // run 2 threads with executor
-        ExecutorService executor = Executors.newFixedThreadPool(2);
+        ExecutorService executor = Executors.newFixedThreadPool(2); // recycle threads
         //message list
         Runnable processor = new MessageProcessor(2);
         executor.execute(processor);
@@ -21,5 +21,7 @@ public class ThreadPoolDemo {
         Runnable processor5 = new MessageProcessor(6);
         executor.execute(processor5);
 
+        // Rejects any new tasks being submitted
+        executor.shutdown();
     }
 }
