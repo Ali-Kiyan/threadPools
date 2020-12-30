@@ -23,5 +23,9 @@ public class ThreadPoolDemo {
 
         // Rejects any new tasks being submitted
         executor.shutdown();
+        while(!executor.isTerminated()){
+
+        }
+        System.out.println("All tasks submitted");
     }
 }
